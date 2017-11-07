@@ -39,9 +39,8 @@ puts maze
 # |_____| |_____|
 
 enchanted_game_factory = EnchantedMazeFactory.new
-maze_game = MazeGame.new
-maze = maze_game.create_maze(enchanted_game_factory)
-puts maze
+enchanted_maze = maze_game.create_maze(enchanted_game_factory)
+puts enchanted_maze
 
 # The following maze is created with the enchanted maze factory
 # _____   _____
