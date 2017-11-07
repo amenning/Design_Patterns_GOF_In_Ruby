@@ -1,34 +1,28 @@
-require_relative 'maze'
-require_relative 'room'
-require_relative 'door'
-require_relative 'wall'
+require_relative 'standard_maze_builder'
 
 class MazeGame
-  def create_maze
-    @maze = Maze.new
-    @room1 = Room.new(1)
-    @room2 = Room.new(2)
-    @door = Door.new(@room1, @room2)
+  def create_maze(builder)
+    builder.build_maze
+    builder.build_room(1)
+    builder.build_room(2)
+    builder.build_door(1, 2)
 
-    @maze.add_room(@room1)
-    @maze.add_room(@room2)
+    builder.maze
+  end
 
-    @room1.set_side('North', Wall.new)
-    @room1.set_side('East', @door)
-    @room1.set_side('South', Wall.new)
-    @room1.set_side('West', Wall.new)
-
-    @room2.set_side('North', Wall.new)
-    @room2.set_side('East', Wall.new)
-    @room2.set_side('South', Wall.new)
-    @room2.set_side('West', @door)
-
-    @maze
+  def create_complex_maze(builder)
+    builder.build_maze
+    builder.build_room(1)
+    builder.build_room(2)
+    builder.build_room(3)
+    builder.build_door(1, 2)
+    builder.build_door(2, 3)
   end
 end
 
 maze_game = MazeGame.new
-maze = maze_game.create_maze
+standard_maze_builder = StandardMazeBuilder.new
+maze = maze_game.create_maze(standard_maze_builder)
 puts maze
 
 # The following maze is created with this base design
