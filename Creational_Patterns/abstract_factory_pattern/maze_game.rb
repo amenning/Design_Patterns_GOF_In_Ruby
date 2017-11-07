@@ -1,7 +1,5 @@
 require_relative 'maze_factory'
-require_relative 'room'
-require_relative 'door'
-require_relative 'wall'
+require_relative 'enchanted_maze_factory'
 
 class MazeGame
   def create_maze(maze_factory)
@@ -39,3 +37,16 @@ puts maze
 # |             |
 # |     | |     |
 # |_____| |_____|
+
+enchanted_game_factory = EnchantedMazeFactory.new
+maze_game = MazeGame.new
+maze = maze_game.create_maze(enchanted_game_factory)
+puts maze
+
+# The following maze is created with the enchanted maze factory
+# _____   _____
+#|     | |     |
+#|  1  | |  2  |
+#|  E       E  |
+#|     | |     |
+#|_____| |_____|

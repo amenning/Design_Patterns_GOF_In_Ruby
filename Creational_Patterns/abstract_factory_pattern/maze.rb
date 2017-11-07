@@ -20,6 +20,7 @@ class Maze
   end
 
   private
+
     def print_north_walls
       print ' '
       @rooms.map do |_room_number, room|
