@@ -10,5 +10,5 @@
   * When a family of related product objects is designed to be used together, and you need to enforce this constraint
   * When you want to provide a class library of products, and you want to reveal just their interfaces, not their implementations
 
-* Run the following ruby code to see the example abstract factories
+* Run the following ruby code to see the example pattern
 * ruby maze_game.rb

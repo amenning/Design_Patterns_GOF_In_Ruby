@@ -16,8 +16,14 @@ class MazeGame
     builder.build_room(1)
     builder.build_room(2)
     builder.build_room(3)
+    builder.build_room(4)
+    builder.build_room(5)
+    builder.build_room(6)
     builder.build_door(1, 2)
     builder.build_door(2, 3)
+    builder.build_door(3, 4)
+    builder.build_door(4, 5)
+    builder.build_door(5, 6)
 
     builder.maze
   end
