@@ -5,25 +5,41 @@ require_relative 'wall'
 
 class MazeGame
   def create_maze
-    @maze = Maze.new
-    @room1 = Room.new(1)
-    @room2 = Room.new(2)
-    @door = Door.new(@room1, @room2)
+    @maze = make_maze
+    @room1 = make_room(1)
+    @room2 = make_room(2)
+    @door = make_door(@room1, @room2)
 
     @maze.add_room(@room1)
     @maze.add_room(@room2)
 
-    @room1.set_side('North', Wall.new)
+    @room1.set_side('North', make_wall)
     @room1.set_side('East', @door)
-    @room1.set_side('South', Wall.new)
-    @room1.set_side('West', Wall.new)
+    @room1.set_side('South', make_wall)
+    @room1.set_side('West', make_wall)
 
-    @room2.set_side('North', Wall.new)
-    @room2.set_side('East', Wall.new)
-    @room2.set_side('South', Wall.new)
+    @room2.set_side('North', make_wall)
+    @room2.set_side('East', make_wall)
+    @room2.set_side('South', make_wall)
     @room2.set_side('West', @door)
 
     @maze
+  end
+
+  def make_maze
+    Maze.new
+  end
+
+  def make_room(room_number)
+    Room.new(room_number)
+  end
+
+  def make_door(room_from, room_to)
+    Door.new(room_from, room_to)
+  end
+
+  def make_wall
+    Wall.new
   end
 end
 
